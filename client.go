@@ -61,6 +61,7 @@ func NewClient(appId, appKey, appSecret string, refreshInterval int) (*VivoPush,
 		host:      ProductionHost,
 		AuthToken: token,
 		client:    vc,
+		mu:        &sync.Mutex{},
 	}
 
 	if refreshInterval <= 0 {
